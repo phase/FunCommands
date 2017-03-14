@@ -1,0 +1,43 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
+group 'org.openredstone'
+version '0.1.0-SNAPSHOT'
+
+buildscript {
+    ext.kotlin_version = '1.0.6'
+
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+apply plugin: 'kotlin'
+
+repositories {
+    mavenCentral()
+
+    maven {
+        url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' // Spigot repo
+    }
+
+    maven {
+        url 'https://oss.sonatype.org/content/repositories/snapshots/' // Sonatype snapshots
+    }
+}
+
+def bukkitVersion = '1.11.2-R0.1-SNAPSHOT'
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile (group: 'org.spigotmc', name: 'spigot-api', version: bukkitVersion)
+}
+
+
+processResources {
+    filter ReplaceTokens, tokens: [
+            "VERSION": version
+    ]
+}

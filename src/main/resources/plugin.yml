@@ -1,0 +1,30 @@
+name: FunCommands
+main: org.openredstone.funcommands.FunCommands
+version: @VERSION@
+author: phase
+commands:
+  derps:
+    description: List all the possible derps.
+    usage: /<command>
+    permission: funcommands.derp
+    permission-message: You don't have permission!
+  derp:
+    description: Prints out a random derp.
+    usage: /<command>
+    permission: funcommands.derp
+    permission-message: You don't have permission!
+  foodfight:
+    description: A polite mealtime activity
+    usage: /<command> victim
+    permission: funcommands.foodfight
+    permission-message: You don't have permission!
+  slap:
+    description: Slappings!
+    usage: /slap <Player> <Object>
+    permission: funcommands.slap
+    permission-message: You don't have permission!
+  rename:
+    description: Rename the item in your hand.
+    usage: /rename <name>
+    permission: funcommands.rename
+    permission-message: You don't have permission!
