@@ -6,7 +6,7 @@ import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
-import org.openredstone.funcommands.FunCommands
+import org.bukkit.plugin.java.JavaPlugin
 import java.io.File
 import java.util.concurrent.ThreadLocalRandom
 
@@ -52,10 +52,10 @@ class SlapCommand : CommandExecutor {
 
 }
 
-class DerpCommand : CommandExecutor {
+class DerpCommand(plugin: JavaPlugin) : CommandExecutor {
 
     // Derps file is called "Derps.txt" and not "derps.txt" for legacy reasons
-    val derps = File(FunCommands.dataFolder.absolutePath + File.separator + "Derps.txt").readLines()
+    val derps = File(plugin.dataFolder.absolutePath + File.separator + "Derps.txt").readLines()
 
     override fun onCommand(sender: CommandSender?, command: Command?, label: String?, args: Array<out String>?): Boolean {
         if (sender != null && !sender.name.isNullOrEmpty()) {

@@ -10,7 +10,7 @@ class FunCommands : JavaPlugin() {
     override fun onEnable() {
         getCommand("rename").executor = RenameCommand()
         getCommand("slap").executor = SlapCommand()
-        getCommand("derp").executor = DerpCommand()
+        getCommand("derp").executor = DerpCommand(this)
     }
 
 }
